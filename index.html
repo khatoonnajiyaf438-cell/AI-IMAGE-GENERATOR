@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Generate AI images with Pollinations AI, choose sizes, create multiple images, and download them instantly."
+  />
+  <title>AI Image Generator</title>
+  <link rel="preconnect" href="https://image.pollinations.ai" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow">IMAGE GENERATOR AI</p>
+        <h1>Generate images from a single prompt.</h1>
+        <p class="lead">
+          Write a prompt, choose your size, and create one or more AI-generated
+          images with instant downloads.
+        </p>
+      </div>
+
+      <form id="generatorForm" class="generator-panel" novalidate>
+        <label class="field">
+          <span>Image prompt</span>
+          <textarea
+            id="promptInput"
+            name="prompt"
+            rows="5"
+            placeholder="Example: A neon-lit cyberpunk city at night with reflective streets and flying cars"
+            maxlength="500"
+            required
+          ></textarea>
+        </label>
+
+        <div class="grid-controls">
+          <label class="field">
+            <span>Image size</span>
+            <select id="sizeSelect" name="size">
+              <option value="1024x1024">Square 1024 × 1024</option>
+              <option value="1536x1024">Landscape 1536 × 1024</option>
+              <option value="1024x1536">Portrait 1024 × 1536</option>
+              <option value="1280x720">Wide 1280 × 720</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Number of images</span>
+            <select id="countSelect" name="count">
+              <option value="1">1 image</option>
+              <option value="2">2 images</option>
+              <option value="3">3 images</option>
+              <option value="4">4 images</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="generateButton" class="generate-button" type="submit">
+            <span class="button-text">Generate images</span>
+            <span class="button-spinner" aria-hidden="true"></span>
+          </button>
+          <p class="hint">Tip: longer prompts usually produce richer results.</p>
+        </div>
+      </form>
+    </section>
+
+    <section class="results-section" aria-labelledby="resultsTitle">
+      <div class="results-header">
+        <h2 id="resultsTitle">Generated images</h2>
+        <p id="statusText" class="status-text">Ready when you are.</p>
+      </div>
+
+      <div id="errorBanner" class="error-banner" role="alert" hidden></div>
+      <div id="gallery" class="gallery" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="imageCardTemplate">
+    <article class="image-card">
+      <div class="image-stage">
+        <div class="image-loader" aria-hidden="true"></div>
+        <img class="generated-image" alt="" loading="lazy" />
+      </div>
+      <div class="image-card-footer">
+        <p class="image-label"></p>
+        <a class="download-button" download>Download</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
