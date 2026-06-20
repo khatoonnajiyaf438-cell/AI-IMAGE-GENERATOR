@@ -76,10 +76,14 @@ The app supports multiple preset sizes and creates a unique seed for each image 
 - If the browser blocks a request, try running the app from a local server instead of opening `index.html` directly.
 - The generated image count and size options are controlled from the UI.
 
-## Screenshot
+## Project Screenshot
 
-Add your project screenshot here if you want to showcase the UI on GitHub.
 
-## License
+![AI Image Generator](ss/ai_image_generator_i.png)
 
-Add your preferred license here if you plan to publish the project publicly.
+## Output
+![AI Image Generator](ss/ai_output.png)
+
+## Author
+Najiya
+CSE(AI&ML)
